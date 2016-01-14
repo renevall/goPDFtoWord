@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -26,16 +27,17 @@ func NewRouter() *mux.Router {
 			Handler(route.HandlerFunc)
 	}
 
+	log.Println("Listening...")
+
+	fs := http.FileServer(http.Dir("../frontend"))
+	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fs))
+
+	router.Handle("/", fs)
+
 	return router
 }
 
 var routes = Routes{
-	Route{
-		"Index",
-		"GET",
-		"/",
-		Index,
-	},
 	Route{
 		"FilesIndex",
 		"GET",
