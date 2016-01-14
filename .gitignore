@@ -22,3 +22,12 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+#frontend
+
+frontend/typings
+frontend/app/**/*.js
+frontend/app/**/*.map
+frontend/node_modules
+frontend/jspm_packages
+frontend/bower_components
