@@ -50,4 +50,16 @@ var routes = Routes{
 		"/files/{fileID}",
 		FileShow,
 	},
+	{
+		"FileUpload",
+		"POST",
+		"/upload",
+		FileUpload,
+	},
+	{
+		"FileUpload",
+		"GET",
+		"/upload",
+		FileUpload,
+	},
 }

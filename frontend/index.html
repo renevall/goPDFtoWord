@@ -8,17 +8,25 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="node_modules/ng2-uploader/bundles/ng2-uploader.js"></script>
+
+
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- 2. Configure SystemJS -->
     <script>
       System.config({
-        packages: {        
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
+            packages: {
+                'app': { format:'register', defaultExtension: 'js' },
+                'rxjs': { defaultExtension: 'js' }
+            },
+            map: {
+              rxjs: 'node_modules/rxjs' //or wherever you have it installed
+            },
       });
+
       System.import('app/boot')
             .then(null, console.error.bind(console));
     </script>
@@ -27,7 +35,7 @@
 
   <!-- 3. Display the application -->
   <body>
-    <my-app>Loading...</my-app>
+    <my-app>Loading...2</my-app>
   </body>
 
 </html>
